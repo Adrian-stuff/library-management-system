@@ -6,6 +6,7 @@ public class Member {
     private String contactNumber;
     private String address;
 
+    // Constructor for new registration (3 params)
     public Member(String name, String contactNumber, String address) {
         this.libraryCardNumber = "LIB-" + UUID.randomUUID().toString().substring(0, 6).toUpperCase();
         this.name = name;
@@ -13,8 +14,18 @@ public class Member {
         this.address = address;
     }
 
+    // Constructor for loading from database (4 params)
+    public Member(String name, String contactNumber, String address, String cardNumber) {
+        this.libraryCardNumber = cardNumber;
+        this.name = name;
+        this.contactNumber = contactNumber;
+        this.address = address;
+    }
+
     public String getCardNumber() { return libraryCardNumber; }
     public String getName() { return name; }
+    public String getContactNumber() { return contactNumber; }
+    public String getAddress() { return address; }
 
     public void displayInfo() {
         System.out.println("Card No: " + libraryCardNumber);
